@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayesian calculator</title>
+    <style>
+        body {
+            background-color: black;
+            color: lightgray;
+            font-family: Arial;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Conditional probability</h1>
+
+    <h3>A simple calculator for Bayes' theorem</h3>
+
+    <p>This calculator will produce <b>the probability of an event A when an event B happens</b> (for example, a fire
+        when there is smoke). The calculation uses the following data:</p>
+
+    <p>
+        <b>The probability of A</b> (fire)<br />
+        <b>The probability of B</b> (smoke)<br />
+        <b>The probability of B when A</b> (smoke when fire)
+    </p>
+
+    <p>
+        A<br /><input type="text" id="a"><br />
+        B<br /><input type="text" id="b"><br />
+        B when A<br /><input type="text" id="ba"><br /><br />
+        <button id="calc" onclick="calc()">Calculate</button>
+    </p>
+
+    <div id="res"></div>
+
+    <script>
+        function calc() {
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            let ba = document.getElementById("ba").value;
+            let result = (ba * a) / b;
+            document.getElementById("res").innerHTML = parseFloat(result).toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
